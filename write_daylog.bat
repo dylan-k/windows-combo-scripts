@@ -10,7 +10,7 @@ set NOWYEAR=%date:~10,4%
 set NOWMONTH=%date:~4,2%
 
 :: Include format yyyy-mm in filename
-set FILEROOT=H:\Notes\content\log\
+set FILEROOT=H:\Notes\
 set FILEPATH=H:\Notes\content\log\
 set FILENAME=%NOWYEAR%-%NOWMONTH%_DAYLOG.md
 
@@ -28,6 +28,7 @@ if exist %FILEPATH%%FILENAME% (
 
 :: START "" "%localappdata%\Programs\Microsoft VS Code\Code.exe" --goto "H:\Notes\notes.code-workspace" %FILEPATH%%FILENAME%:6
 
-START /max obsidian://open?vault=Notes^&file=content\log\%FILENAME%
+START "" obsidian://open?vault=Notes^&file=content\log\%FILENAME%
 
+::move nul 2>&0
 EXIT

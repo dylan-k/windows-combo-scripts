@@ -5,7 +5,7 @@
 :: On weekend mornings, option for different routine
 ::-----------------------------------------------------------------------------
 
-@echo off  
+::@echo off  
 
 FOR /F "TOKENS=1,* DELIMS==" %%v IN ('WMIC Path Win32_LocalTime Get /FORMAT:VALUE') DO IF "%%v" == "DayOfWeek" SET DayOfWeek=%%w
 
@@ -38,8 +38,8 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
     IF %hour% GEQ 6 IF %hour% LEQ 17 (
         start /wait H:\Config\Scripts\launch_outlook.bat
         start /wait H:\Config\Scripts\write_daylog.bat
-        @REM  if closed, open Todoist
-        wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START /min "Todoist"  /D "C:\Users\Dylan\AppData\Local\Programs\todoist\" Todoist.exe)
+        @REM if closed, open Todoist
+        wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Todoist\WindowsDesktopApp\" Todoist.exe)
         GOTO End
     ) ELSE (
         ECHO quittin' time
@@ -52,9 +52,15 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
   ECHO Today is day number %DayOfWeek% this week.
   start /wait H:\Config\Scripts\write_daylog.bat
   @REM if closed, open Todoist
-  wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Programs\todoist\" Todoist.exe)
+  wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Todoist\WindowsDesktopApp\" Todoist.exe)
   GOTO End
 
 :END
 
-EXIT
+
+: minimize all the things
+START "" "H:\Config\Scripts\show-desktop.vbs"
+
+::EXIT
+
+
