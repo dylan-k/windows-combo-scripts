@@ -8,10 +8,6 @@
 wscript.exe "H:\Config\Scripts\invisible.vbs" ^
 "H:\Config\Scripts\write_daylog.bat"
 
-:: get webcam settings ready
-wscript.exe "H:\Config\Scripts\invisible.vbs" ^
-"H:\Config\Scripts\webcam\webcamdialog.bat"
-
 :: launch Xsplit
 wmic process where "name='XSplitVCam.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Zoom" /D "C:\Program Files\XSplit\VCam\x64\" XSplitVCam.exe)
 
