@@ -1,6 +1,9 @@
 _docs
 *.exe
 
+#ignore keyboard directory. It's a seperate repo.
+keyboard/*
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
