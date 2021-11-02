@@ -37,9 +37,9 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
 
     IF %hour% GEQ 6 IF %hour% LEQ 17 (
         start /wait H:\Config\Scripts\launch_outlook.bat
-        start /wait H:\Config\Scripts\write_daylog.bat
+        start /wait H:\Config\Scripts\space_worknotes.bat
         @REM if closed, open Todoist
-        wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Todoist\WindowsDesktopApp\" Todoist.exe)
+        wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Programs\todoist\" Todoist.exe)
         GOTO End
     ) ELSE (
         ECHO quittin' time
@@ -50,9 +50,9 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
 
   ECHO It's the weekend.
   ECHO Today is day number %DayOfWeek% this week.
-  start /wait H:\Config\Scripts\write_daylog.bat
+  start /wait H:\Config\Scripts\space_worknotes.bat
   @REM if closed, open Todoist
-  wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Todoist\WindowsDesktopApp\" Todoist.exe)
+  wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Programs\todoist\" Todoist.exe)
   GOTO End
 
 :END
@@ -62,5 +62,3 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
 START "" "H:\Config\Scripts\show-desktop.vbs"
 
 ::EXIT
-
-
