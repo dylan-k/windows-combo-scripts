@@ -8,6 +8,22 @@
 :: get the date
 set NOWYEAR=%date:~10,4%
 set NOWMONTH=%date:~4,2%
+set NOWDAY=%date:~6,2%
+
+:: set month name for the corresponding numbers
+
+if %NOWMONTH%==01 set NOWMONTHNAME=January
+if %NOWMONTH%==02 set NOWMONTHNAME=February
+if %NOWMONTH%==03 set NOWMONTHNAME=March
+if %NOWMONTH%==04 set NOWMONTHNAME=April
+if %NOWMONTH%==05 set NOWMONTHNAME=May
+if %NOWMONTH%==06 set NOWMONTHNAME=June
+if %NOWMONTH%==07 set NOWMONTHNAME=July
+if %NOWMONTH%==08 set NOWMONTHNAME=August
+if %NOWMONTH%==09 set NOWMONTHNAME=September
+if %NOWMONTH%==10 set NOWMONTHNAME=October
+if %NOWMONTH%==11 set NOWMONTHNAME=November
+if %NOWMONTH%==12 set NOWMONTHNAME=December
 
 :: Include format yyyy-mm in filename
 set FILEROOT=H:\Notes\
@@ -19,10 +35,15 @@ cd /d %FILEROOT%
 
 if exist %FILEPATH%%FILENAME% (
   echo "file exists"
-  rem sed '5 a #This is just a commented line' %FILEPATH%%FILENAME%
 ) else (
   echo "file doesn't exist"
-  hugo new log/%FILENAME%
+  echo "creating file..."
+  (
+    echo ---
+    echo title="Daylog for %NOWMONTHNAME%, %NOWYEAR%"
+    echo date="%NOWYEAR%-%NOWMONTH%"
+    echo ---
+  ) > %FILEPATH%%FILENAME%
 )
 
 
