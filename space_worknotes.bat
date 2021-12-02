@@ -5,30 +5,32 @@
 ::-----------------------------------------------------------------------------
 @echo off
 
-:: get the date
-set NOWYEAR=%date:~10,4%
-set NOWMONTH=%date:~4,2%
+@REM :: get the date
+@REM set NOWYEAR=%date:~10,4%
+@REM set NOWMONTH=%date:~4,2%
 
-:: Include format yyyy-mm in filename
-set FILEROOT=H:\Notes\
-set FILEPATH=H:\Notes\content\log\
-set FILENAME=%NOWYEAR%-%NOWMONTH%_DAYLOG.md
+@REM :: Include format yyyy-mm in filename
+@REM set FILEROOT=H:\Notes\
+@REM set FILEPATH=H:\Notes\content\log\
+@REM set FILENAME=%NOWYEAR%-%NOWMONTH%_DAYLOG.md
 
-echo "filename is %fileNAME%"
-cd /d %FILEROOT% 
+@REM echo "filename is %fileNAME%"
+@REM cd /d %FILEROOT% 
 
-if exist %FILEPATH%%FILENAME% (
-  echo "file exists"
-  rem sed '5 a #This is just a commented line' %FILEPATH%%FILENAME%
-) else (
-  echo "file doesn't exist"
-  hugo new log/%FILENAME%
-)
+@REM if exist %FILEPATH%%FILENAME% (
+@REM   echo "file exists"
+@REM   rem sed '5 a #This is just a commented line' %FILEPATH%%FILENAME%
+@REM ) else (
+@REM   echo "file doesn't exist"
+@REM   hugo new log/%FILENAME%
+@REM )
 
 
 :: START "" "%localappdata%\Programs\Microsoft VS Code\Code.exe" --goto "H:\Notes\notes.code-workspace" %FILEPATH%%FILENAME%:6
 
-START "" obsidian://open?vault=notes-walters^&file=content\log\%FILENAME%
+@REM START "" obsidian://open?vault=notes-walters^&file=content\log\%FILENAME%
+
+START "" obsidian://open?vault=notes-walters
 
 ::move nul 2>&0
 EXIT

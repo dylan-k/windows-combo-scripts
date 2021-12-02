@@ -5,51 +5,51 @@
 ::-----------------------------------------------------------------------------
 @echo off
 
-:: get the date
-set NOWYEAR=%date:~10,4%
-set NOWMONTH=%date:~4,2%
-set NOWDAY=%date:~6,2%
+@REM :: get the date
+@REM set NOWYEAR=%date:~10,4%
+@REM set NOWMONTH=%date:~4,2%
+@REM set NOWDAY=%date:~6,2%
 
-:: set month name for the corresponding numbers
+@REM :: set month name for the corresponding numbers
 
-if %NOWMONTH%==01 set NOWMONTHNAME=January
-if %NOWMONTH%==02 set NOWMONTHNAME=February
-if %NOWMONTH%==03 set NOWMONTHNAME=March
-if %NOWMONTH%==04 set NOWMONTHNAME=April
-if %NOWMONTH%==05 set NOWMONTHNAME=May
-if %NOWMONTH%==06 set NOWMONTHNAME=June
-if %NOWMONTH%==07 set NOWMONTHNAME=July
-if %NOWMONTH%==08 set NOWMONTHNAME=August
-if %NOWMONTH%==09 set NOWMONTHNAME=September
-if %NOWMONTH%==10 set NOWMONTHNAME=October
-if %NOWMONTH%==11 set NOWMONTHNAME=November
-if %NOWMONTH%==12 set NOWMONTHNAME=December
+@REM if %NOWMONTH%==01 set NOWMONTHNAME=January
+@REM if %NOWMONTH%==02 set NOWMONTHNAME=February
+@REM if %NOWMONTH%==03 set NOWMONTHNAME=March
+@REM if %NOWMONTH%==04 set NOWMONTHNAME=April
+@REM if %NOWMONTH%==05 set NOWMONTHNAME=May
+@REM if %NOWMONTH%==06 set NOWMONTHNAME=June
+@REM if %NOWMONTH%==07 set NOWMONTHNAME=July
+@REM if %NOWMONTH%==08 set NOWMONTHNAME=August
+@REM if %NOWMONTH%==09 set NOWMONTHNAME=September
+@REM if %NOWMONTH%==10 set NOWMONTHNAME=October
+@REM if %NOWMONTH%==11 set NOWMONTHNAME=November
+@REM if %NOWMONTH%==12 set NOWMONTHNAME=December
 
-:: Include format yyyy-mm in filename
-set FILEROOT=H:\Notes\
-set FILEPATH=H:\Notes\content\log\
-set FILENAME=%NOWYEAR%-%NOWMONTH%_DAYLOG.md
+@REM :: Include format yyyy-mm in filename
+@REM set FILEROOT=H:\Notes\
+@REM set FILEPATH=H:\Notes\content\log\
+@REM set FILENAME=%NOWYEAR%-%NOWMONTH%_DAYLOG.md
 
-echo "filename is %fileNAME%"
-cd /d %FILEROOT% 
+@REM echo "filename is %fileNAME%"
+@REM cd /d %FILEROOT% 
 
-if exist %FILEPATH%%FILENAME% (
-  echo "file exists"
-) else (
-  echo "file doesn't exist"
-  echo "creating file..."
-  (
-    echo ---
-    echo title="Daylog for %NOWMONTHNAME%, %NOWYEAR%"
-    echo date="%NOWYEAR%-%NOWMONTH%"
-    echo ---
-  ) > %FILEPATH%%FILENAME%
-)
+@REM if exist %FILEPATH%%FILENAME% (
+@REM   echo "file exists"
+@REM ) else (
+@REM   echo "file doesn't exist"
+@REM   echo "creating file..."
+@REM   (
+@REM     echo ---
+@REM     echo title="Daylog for %NOWMONTHNAME%, %NOWYEAR%"
+@REM     echo date="%NOWYEAR%-%NOWMONTH%"
+@REM     echo ---
+@REM   ) > %FILEPATH%%FILENAME%
+@REM )
 
 
-:: START "" "%localappdata%\Programs\Microsoft VS Code\Code.exe" --goto "H:\Notes\notes.code-workspace" %FILEPATH%%FILENAME%:6
+@REM :: START "" "%localappdata%\Programs\Microsoft VS Code\Code.exe" --goto "H:\Notes\notes.code-workspace" %FILEPATH%%FILENAME%:6
 
-START "" obsidian://open?vault=Notes^&file=content\log\%FILENAME%
-
+@REM START "" obsidian://open?vault=Notes^&file=content\log\%FILENAME%
+START "" obsidian://open?vault=notes
 ::move nul 2>&0
 EXIT

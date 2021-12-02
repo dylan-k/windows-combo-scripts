@@ -12,6 +12,7 @@ wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nu
 : source: https://stackoverflow.com/questions/53011931/call-scf-item-from-command-prompt
 START "" "H:\Config\Scripts\show-desktop.vbs"
 
-start /wait H:\Config\Scripts\write_daylog.bat
+@REM start /wait H:\Config\Scripts\write_daylog.bat
+START "" obsidian://open?vault=notes
 
 EXIT
