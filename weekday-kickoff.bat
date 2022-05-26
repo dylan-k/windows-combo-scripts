@@ -5,7 +5,7 @@
 :: On weekend mornings, option for different routine
 ::-----------------------------------------------------------------------------
 
-::@echo off  
+::@echo off
 
 FOR /F "TOKENS=1,* DELIMS==" %%v IN ('WMIC Path Win32_LocalTime Get /FORMAT:VALUE') DO IF "%%v" == "DayOfWeek" SET DayOfWeek=%%w
 
@@ -57,6 +57,9 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
 
 :END
 
+:: now restart explorer in case anything hangs
+taskkill /im explorer.exe /f
+start explorer.exe
 
 : minimize all the things
 START "" "H:\Config\Scripts\show-desktop.vbs"

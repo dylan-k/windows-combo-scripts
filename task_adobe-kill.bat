@@ -45,6 +45,9 @@ net stop CoreSync
 net stop AdobeIPCBroker
 net stop Adobe CEF Helper
 
+:: now restart explorer in case anything hangs
+taskkill /im explorer.exe /f
+start explorer.exe
 
 EXIT
 
