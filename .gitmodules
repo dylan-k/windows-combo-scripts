@@ -1,0 +1,3 @@
+[submodule "outlook-obsidian"]
+	path = outlook-obsidian
+	url = git@github.com:dylan-k/Obsidian-For-Business.git
