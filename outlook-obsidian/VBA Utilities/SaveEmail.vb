@@ -46,29 +46,19 @@ Sub ExtractEmail()
   '  illegal characters from the subject line
   ReplaceCharsForFileName temporarySubjectLineString, ""
 
-    ' List the recipients
-    Dim recips As Outlook.Recipients
-      Set recips = oMail.Recipients
-    Dim recip As Outlook.Recipient
-    'Dim result As String
-    Dim recipString As String
-      recipString = ""
-    For Each recip In recips
-      recipString = recipString & "  "
-      recipString = recipString & "- "
-      ' recipString = recipString & formatName(recip.name, personNameStartChar)
-      recipString = recip.name & " <"
-
-      ' recipient addresses differ with internal/exchange recipients
-      If recip.AddressEntry Is Nothing Then
-        recipString = recipString &  recip.Address
-      ElseIf recip.AddressEntry.GetExchangeUser Is Nothing Then
-        recipString = recipString & recip.Address
-      Else
-        recipString = recipString & recip.AddressEntry.GetExchangeUser.PrimarySmtpAddress
-      End If
-      recipString = recipString & recip.address & ">" & vbCrLf
-    Next
+  ' List the recipients
+  Dim recips As Outlook.Recipients
+    Set recips = oMail.Recipients
+  Dim recip As Outlook.Recipient
+  Dim result As String
+  Dim recipString As String
+    recipString = ""
+  For Each recip In recips
+    recipString = recipString & "  "
+    recipString = recipString & "- "
+    recipString = recipString & formatName(recip.name, personNameStartChar)
+    ' recipString = recipString & vbCrLf
+  Next
 
   ' Get sender's name and email
   Dim sender As String

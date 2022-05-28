@@ -119,8 +119,8 @@ Sub GetAttendeeList(meetingType As String)
   Dim meetingFrontmatter As String
   meetingFrontmatter = "---" & vbCrLf
   meetingFrontmatter = meetingFrontmatter & "title: " & Chr(34) & objItem.Subject & Chr(34) & vbCrLf
-  meetingFrontmatter = meetingFrontmatter & "date: " & Format(dtStart, "yyyy-mm-dd") & vbCrLf
-  meetingFrontmatter = meetingFrontmatter & "tags: " & "[meeting]" & vbCrLf
+  meetingFrontmatter = meetingFrontmatter & "date: " & Chr(34) & Format(dtStart, "yyyy-mm-dd") & Format(dtStart, "hh:MM:ss AM/PM") & Chr(34) & vbCrLf
+  meetingFrontmatter = meetingFrontmatter & "tags: " & Chr(34) & "meeting" & Chr(34) & vbCrLf
   meetingFrontmatter = meetingFrontmatter & "---"
 
   ' Add frontmatter
@@ -128,8 +128,7 @@ Sub GetAttendeeList(meetingType As String)
   strCopyData = meetingFrontmatter & vbCrLf & vbCrLf & vbCrLf
 
   ' Add heading/subject line
-  strCopyData = strCopyData & objItem.Subject & vbCrLf
-  strCopyData = strCopyData & "==============================================================================="
+  strCopyData = strCopyData & "# " & objItem.Subject
   strCopyData = strCopyData & vbCrLf & vbCrLf & vbCrLf
 
   ' Add details to body not frontmatter, so preview won't hide precious location, moments before meeting

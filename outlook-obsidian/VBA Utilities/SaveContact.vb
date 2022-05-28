@@ -88,6 +88,15 @@ Sub ExportOutlookAddressBook()
     resultString = resultString & "```" & vbCrLf & vbCrLf & vbCrLf
 
 
+    resultString = resultString & "### Training" & vbCrLf & vbCrLf
+    resultString = resultString & "```dataview" & vbCrLf
+    resultString = resultString & "table file.ctime.year as CY, file.ctime.month as CM, file.ctime.day as CD, file.mtime.year as MY, file.mtime.month as MM, file.mtime.day as MD" & vbCrLf
+    resultString = resultString & "from [[" & contactFileNameStartChr & contact.FirstName & " " & contact.LastName & "]] and #Training" & vbCrLf
+    resultString = resultString & "limit 10" & vbCrLf
+    resultString = resultString & "sort file.ctime desc" & vbCrLf
+    resultString = resultString & "```" & vbCrLf & vbCrLf & vbCrLf
+
+
     resultString = resultString & "### Emails" & vbCrLf & vbCrLf
     resultString = resultString & "```dataview" & vbCrLf
     resultString = resultString & "table file.ctime.year as CY, file.ctime.month as CM, file.ctime.day as CD, file.mtime.year as MY, file.mtime.month as MM, file.mtime.day as MD" & vbCrLf
@@ -121,4 +130,3 @@ Sub ExportOutlookAddressBook()
     Set olAL = Nothing
 
 End Sub
-
