@@ -12,6 +12,6 @@ wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nu
 : source: https://stackoverflow.com/questions/53011931/call-scf-item-from-command-prompt
 START "" "H:\Config\Scripts\show-desktop.vbs"
 
-code H:\Notes\notes.code-workspace
+code H:\Notes\
 
 EXIT

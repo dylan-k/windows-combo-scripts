@@ -1,5 +1,5 @@
 ::-----------------------------------------------------------------------------
-:Start each workday with some setup
+:Start each day with some setup
 :: Open Outlook, Notes, Todo and otherwise prep for a workday.
 :: Has a Scheduled Task set to run every day at 8am
 :: On weekend mornings, option for different routine
@@ -50,7 +50,7 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
 
   ECHO It's the weekend.
   ECHO Today is day number %DayOfWeek% this week.
-  start /wait H:\Config\Scripts\space_worknotes.bat
+  start /wait H:\Config\Scripts\space_notes.bat
   @REM if closed, open Todoist
   wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Programs\todoist\" Todoist.exe)
   GOTO End
