@@ -27,7 +27,9 @@
 @REM )
 
 
-START "" "%localappdata%\Programs\Microsoft VS Code\Code.exe" --goto "H:\Notes\notes.code-workspace" %FILEPATH%%FILENAME%:6
+code H:\WALTERS\notes-walters\
+
+:: START "" "%localappdata%\Programs\Microsoft VS Code\Code.exe" --goto "H:\Notes\notes.code-workspace" %FILEPATH%%FILENAME%:6
 
 :: @REM START "" obsidian://open?vault=notes-walters^&file=content\log\%FILENAME%
 
