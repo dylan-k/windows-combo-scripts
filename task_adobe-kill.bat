@@ -11,6 +11,7 @@ net session >nul 2>&1
     ) else (
         GOTO :NoAdmin
     )
+TASKKILL /F /IM "Creative Cloud Helper.exe /T
 TASKKILL /F /IM "Creative Cloud.exe" /T
 TASKKILL /F /IM "AcroRd32.exe" /T
 TASKKILL /F /IM "AdobeARM.exe" /T

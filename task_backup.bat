@@ -39,14 +39,14 @@ rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL 
 :: pictures
 rsync --verbose --recursive --update --exclude='Lightroom/' --cvs-exclude --progress --info=ALL /cygdrive/m/pictures/ /cygdrive/u/backup-pictures/ --log-file=/cygdrive/u/backup-pictures.log
 
-:: pictures
+:: pictures: scans
 rsync --verbose --recursive --update --cvs-exclude --info=ALL /cygdrive/m/--progress scans/ /cygdrive/u/backup-scans/ --log-file=/cygdrive/u/backup-scans.log
 
 :: music
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/m/music/ /cygdrive/u/backup-music/ --log-file=/cygdrive/u/backup-music.log
+rsync --verbose --recursive --ignore-existing --update  --delete --progress /cygdrive/m/music/ /cygdrive/u/backup-music/ --log-file=/cygdrive/u/backup-music.log
 
 
 
 
 
-EXIT 
+EXIT

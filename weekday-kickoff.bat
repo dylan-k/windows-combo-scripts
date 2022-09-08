@@ -1,11 +1,10 @@
+@echo off
 ::-----------------------------------------------------------------------------
 :Start each day with some setup
 :: Open Outlook, Notes, Todo and otherwise prep for a workday.
 :: Has a Scheduled Task set to run every day at 8am
 :: On weekend mornings, option for different routine
 ::-----------------------------------------------------------------------------
-
-::@echo off
 
 FOR /F "TOKENS=1,* DELIMS==" %%v IN ('WMIC Path Win32_LocalTime Get /FORMAT:VALUE') DO IF "%%v" == "DayOfWeek" SET DayOfWeek=%%w
 
@@ -51,8 +50,11 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
   ECHO It's the weekend.
   ECHO Today is day number %DayOfWeek% this week.
   start /wait H:\Config\Scripts\space_notes.bat
+
   @REM if closed, open Todoist
   wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START "Todoist"  /D "C:\Users\Dylan\AppData\Local\Programs\todoist\" Todoist.exe)
+
+
   GOTO End
 
 :END
