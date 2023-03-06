@@ -1,5 +1,7 @@
 # Obsidian For Business
 
+My version of this is on a branch called "custom".
+
 <!-- Header & Preview Image -->
 <center>
   <img src="./images/banner.png" height="50%">
@@ -16,7 +18,7 @@
   </a>
   <img src="https://img.shields.io/github/v/release/tallguyjenks/Obsidian-For-Business">
   <a href="https://wakatime.com/badge/github/tallguyjenks/Obsidian-For-Business">
-    <img src="https://wakatime.com/badge/github/tallguyjenks/Obsidian-For-Business.svg"> 
+    <img src="https://wakatime.com/badge/github/tallguyjenks/Obsidian-For-Business.svg">
   </a>
 </p>
 
@@ -34,34 +36,34 @@
 
 ## Features
 
-- A template vault to get you started using `Obsidian For Business`
-- Easy macros for tagging and refactoring emails en-masse
-  - Select email(s) in Outlook and run the `JDAdd` macro to add a Johnny Decimal tag like: `12.04`. Your email subject lines will get a `[12.04]` tag added to the end of the subject line for easy searching. Described more in detail [HERE](https://johnnydecimal.com/concepts/managing-email/)
-  - To easily remove an entire tag from email(s) select them all and run `JDRemove` and 1 tag will be removed from the end of the subject line
-  - Conversation view groups will not display the tag only the individual email items
-- Extract emails and calendar meetings to plain text straight to your vault
-  - Select email(s) in Outlook and run the `SaveEmail` utility to extract each email into the designated folder in our Obsidian vault. (file path configured in [USER_CONFIG](USER_CONFIG.vb)
-  - Extract meeting attdendees and details by selecting a single meeting at a time in the calendar interface and running `SaveMeeting` and the detailes will be extracted to the designated vault file path set in [USER_CONFIG](USER_CONFIG.vb) 
-- Several facets of this system are configured and documented in [USER_CONFIG](USER_CONFIG.vb)
+  - A template vault to get you started using `Obsidian For Business`
+  - Easy macros for tagging and refactoring emails en-masse
+    - Select email(s) in Outlook and run the `JDAdd` macro to add a Johnny Decimal tag like: `12.04`. Your email subject lines will get a `[12.04]` tag added to the end of the subject line for easy searching. Described more in detail [HERE](https://johnnydecimal.com/concepts/managing-email/)
+    - To easily remove an entire tag from email(s) select them all and run `JDRemove` and 1 tag will be removed from the end of the subject line
+    - Conversation view groups will not display the tag only the individual email items
+  - Extract emails and calendar meetings to plain text straight to your vault
+    - Select email(s) in Outlook and run the `SaveEmail` utility to extract each email into the designated folder in our Obsidian vault. (file path configured in [USER_CONFIG](USER_CONFIG.vb)
+    - Extract meeting attdendees and details by selecting a single meeting at a time in the calendar interface and running `SaveMeeting` and the detailes will be extracted to the designated vault file path set in [USER_CONFIG](USER_CONFIG.vb)
+  - Several facets of this system are configured and documented in [USER_CONFIG](USER_CONFIG.vb)
 
 
 ## Prerequisites
 
-- Obsidian is required for the Template Vault
-- For the Microsoft Outlook VBA tools you will need:
-  - Microsoft Windows
-  - Microsoft Office
-  - [Microsoft Outlook Macros Enabled](https://support.microsoft.com/en-us/office/enable-or-disable-macros-in-office-files-12b036fd-d140-4e74-b45e-16fed1a7e5c6)
-  - Microsoft Office VBA libraries activated
-    - Microsoft Forms 2.0 Object Library
-    - Microsoft VBScript Regular Expressions 5.5
+  - Obsidian is required for the Template Vault
+  - For the Microsoft Outlook VBA tools you will need:
+    - Microsoft Windows
+    - Microsoft Office
+    - [Microsoft Outlook Macros Enabled](https://support.microsoft.com/en-us/office/enable-or-disable-macros-in-office-files-12b036fd-d140-4e74-b45e-16fed1a7e5c6)
+    - Microsoft Office VBA libraries activated
+      - Microsoft Forms 2.0 Object Library
+      - Microsoft VBScript Regular Expressions 5.5
 
 It is recommended to use the latest version of Obsidian. The template vault includes community plugins. These should be updated to their latest versions using Obsidian's settings, the first time you open the vault.
 
 
 ## Starting an Obsidian Vault from the Template
 
-1. Download this GitHub repository through any of the usual means 
+1. Download this GitHub repository through any of the usual means
    - GitHub CLI
    - SSH
    - HTTPS
@@ -118,20 +120,20 @@ With that all done you'll have some icons on your Quick Access Toolbar to click 
 
 ## Resources
 
-- [Obsidian](https://obsidian.md/)
-- [Bryan's YouTube Channel (Lots of Obsidian Videos)](https://www.youtube.com/c/BryanJenksTech?sub_confirmation=1)
+  - [Obsidian](https://obsidian.md/)
+  - [Bryan's YouTube Channel (Lots of Obsidian Videos)](https://www.youtube.com/c/BryanJenksTech?sub_confirmation=1)
 
 
 ## Development Notes
 
-Development should take place on a Windows machine. Given that VBA was made in '93 legacy'd in '08 little has changed so you can still easily use older code and machines. 
+Development should take place on a Windows machine. Given that VBA was made in '93 legacy'd in '08 little has changed so you can still easily use older code and machines.
 Newer versions of MS Office might be recommended because of the additions to the Object Library for VBA and i'm not sure if there would be anything missing from what versions of the libraries.  
 See [CONTRIBUTING](CONTRIBUTING.md)
 
 Helpful tools with VBA that I have yet ot implement well with this project are:
     <!-- TODO Implement these tools into the project -->
   - [The Rubberduck IDE](https://github.com/rubberduck-vba/Rubberduck)
-  - [VBA Sync Version Control Helper](https://github.com/chelh/VBASync/) 
+  - [VBA Sync Version Control Helper](https://github.com/chelh/VBASync/)
 
 Ideally i'd like to further improve upon the code base using the additional VBA dev tools to better manage the code. For now i'd like to squash bugs, expand the regex options for email formats that appear so the extractors work as intended and after reaching a level of stability, just expand feature requests.  
 See [ROADMAP](ROADMAP.md)
@@ -144,7 +146,7 @@ There should be no administrative privledges required for any of these tools at 
 
 ### History
 
-- **2021-04-04** Codebase Is Opensourced!
+  - **2021-04-04** Codebase Is Opensourced!
 
 See [RELEASES](https://github.com/tallguyjenks/Obsidian-For-Business/releases)
 
@@ -153,7 +155,7 @@ See [RELEASES](https://github.com/tallguyjenks/Obsidian-For-Business/releases)
 
 Thank you to everyone who contributes to this project:
 
-- [@dylan-k](https://github.com/dylan-k)
+  - [@dylan-k](https://github.com/dylan-k)
 
 Pull requests with contributions are welcome! Bug reports, feature requests, and questions are also invited. Please review the [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing Guidelines](CONTRIBUTING.md) to get started. If you contribute to this project, do add a pull request to update the [AUTHORS](AUTHORS.md) page as well!
 

@@ -1,5 +1,5 @@
 ::-----------------------------------------------------------------------------
-:BLOG 
+:BLOG
 :: Quickly make a new blog post and get writing
 ::-----------------------------------------------------------------------------
 @echo off
@@ -43,7 +43,9 @@ C:\ProgramData\chocolatey\bin\hugo.exe new posts/%file%
 :: open it up to start writing in vscode (ubuntu)
 :: code --remote wsl+Ubuntu /mnt/e/Sites/nocategories /mnt/e/Sites/nocategories/:: README.md /mnt/e/Sites/nocategories/_posts/%file%
 
-:: open to write in vscode (windows) %root%\README.md 
-start "" "C:\Program Files\Microsoft VS Code\Code.exe" %root%\nocategories.code-workspace
+%SystemRoot%\explorer.exe %root%
+
+:: open to write in vscode (windows) %root%\README.md
+start "" "C:\Program Files\Microsoft VS Code\Code.exe" %root%
 start "" "C:\Program Files\Microsoft VS Code\Code.exe" --reuse-window %root%\README.md
 start "" "C:\Program Files\Microsoft VS Code\Code.exe" --reuse-window --goto %path%\%file%:10

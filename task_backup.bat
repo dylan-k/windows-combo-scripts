@@ -16,7 +16,7 @@ robocopy "C:\Program Files (x86)\MusicBee" "H:\Config\AppConfigs\MusicBee\musicb
 :: -----------------------------------------------------------------------------
 
 ::user folder
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/c/Users/dylan/ /cygdrive/u/backup-user/ --log-file=/cygdrive/u/backup-user.log
+:: rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/c/Users/dylan/ /cygdrive/u/backup-user/ --log-file=/cygdrive/u/backup-user.log
 
 :: documents
 rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/h/documents/ /cygdrive/u/backup-documents/ --log-file=/cygdrive/u/backup-documents.log
@@ -40,10 +40,10 @@ rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL 
 rsync --verbose --recursive --update --exclude='Lightroom/' --cvs-exclude --progress --info=ALL /cygdrive/m/pictures/ /cygdrive/u/backup-pictures/ --log-file=/cygdrive/u/backup-pictures.log
 
 :: pictures: scans
-rsync --verbose --recursive --update --cvs-exclude --info=ALL /cygdrive/m/--progress scans/ /cygdrive/u/backup-scans/ --log-file=/cygdrive/u/backup-scans.log
+rsync --verbose --recursive --update --exclude='Lightroom/' --cvs-exclude --progress --info=ALL /cygdrive/m/Scans/ /cygdrive/u/backup-scans/ --log-file=/cygdrive/u/backup-scans.log
 
 :: music
-rsync --verbose --recursive --ignore-existing --update  --delete --progress /cygdrive/m/music/ /cygdrive/u/backup-music/ --log-file=/cygdrive/u/backup-music.log
+:: rsync --verbose --recursive --ignore-existing --update  --delete --progress /cygdrive/m/music/ /cygdrive/u/backup-music/ --log-file=/cygdrive/u/backup-music.log
 
 
 

@@ -1,11 +1,13 @@
 ::-----------------------------------------------------------------------------
 :Upgrade Applications
-:: Automate as many upgrades as possible
+:: Automate some system checkups
 ::-----------------------------------------------------------------------------
 @::!/dos/rocks
 
-choco upgrade all
-npm update -g
+DISM /Online /Cleanup-image /Scanhealth
+DISM /Online /Cleanup-image /Restorehealth
+DISM /Online /Cleanup-image /startcomponentcleanup
+sfc /scannow
 wuauclt /detectnow /updatenow
 
 :: EXIT
