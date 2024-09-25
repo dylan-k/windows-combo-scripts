@@ -63,7 +63,7 @@ IF %DayOfWeek% == 6 ( GOTO DAYOFF )
 taskkill /im explorer.exe /f
 start explorer.exe
 
-: minimize all the things
-START "" "H:\Config\Scripts\show-desktop.vbs"
+:: minimize everything
+wscript.exe "H:\Config\Scripts\show-desktop.vbs"
 
 ::EXIT

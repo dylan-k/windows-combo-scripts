@@ -8,9 +8,8 @@
 : have todo list ready but minimized
 wmic process where "name='Todoist.exe'" get ProcessID | find /i "ProcessId" > nul || (START /min "Todoist"  /D "C:\Users\Dylan\AppData\Local\Programs\todoist\" Todoist.exe)
 
-: minimize all the things
-: source: https://stackoverflow.com/questions/53011931/call-scf-item-from-command-prompt
-START "" "H:\Config\Scripts\show-desktop.vbs"
+:: minimize everything
+wscript.exe "H:\Config\Scripts\show-desktop.vbs"
 
 code H:\Notes\
 
