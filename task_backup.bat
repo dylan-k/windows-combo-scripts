@@ -1,6 +1,7 @@
 ::-----------------------------------------------------------------------------
-:backup using rsync for windows
+:backup to local drive using rsync for windows
 :: requires rsync, installed rsync using ``choco install rsync'
+:: for cloud backups I use BackBlaze
 ::-----------------------------------------------------------------------------
 
 :: @echo off
