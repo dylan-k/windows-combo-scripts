@@ -122,6 +122,10 @@ Here's how to create a shortcut:
 2. **Create a Shortcut**:
    - Right-click on a script file (e.g., `space_meeting.bat`).
    - Select "Create shortcut."
+   - [Tweak the shortcut command ](https://winaero.com/pin-a-batch-file-to-the-start-menu-or-taskbar-in-windows-10/)
+     - `cmd /c "path to your batch file"` will leave it open after it runs 
+     - and `cmd /k "path to your batch file"` will make it close on completion
+
 3. **Move the Shortcut**:
    - Move the created shortcut to a location indexed by the Start menu, such as the Desktop or a specific folder in the Start menu. For example, you can move the shortcut to the Start Menu directory:
      ```
