@@ -4,7 +4,6 @@
 ::-----------------------------------------------------------------------------
 @::!/dos/rocks
 
-DISM /Online /Cleanup-image /Scanhealth
 DISM /Online /Cleanup-image /Restorehealth
 DISM /Online /Cleanup-image /startcomponentcleanup
 sfc /scannow
