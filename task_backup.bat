@@ -3,50 +3,46 @@
 :: requires rsync, installed rsync using ``choco install rsync'
 ::-----------------------------------------------------------------------------
 
-:: @echo off
+:: Settings
+@echo off
+set RSYNC_OPTIONS=--verbose --recursive --times --update --exclude='.git/' --cvs-exclude --progress --info=ALL --stats --ignore-errors
+set LOG_DIR=/cygdrive/u/logs
+set TIMESTAMP=%date:~-4%-%date:~4,2%-%date:~7,2%_%time:~0,2%-%time:~3,2%
 
-:: important settings
-:: -----------------------------------------------------------------------------
-:: robocopy "\\computerA\FolderA" "\\computerB\FolderB "/E /MIR
-
+:: robocopy example for specific applications
 robocopy "C:\Program Files (x86)\MusicBee" "H:\Config\AppConfigs\MusicBee\musicbee-programfiles" /E /MIR
 
-
-:: important files
+:: Important Files
 :: -----------------------------------------------------------------------------
 
-::user folder
-:: rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/c/Users/dylan/ /cygdrive/u/backup-user/ --log-file=/cygdrive/u/backup-user.log
+:: User Folder
+rsync %RSYNC_OPTIONS% /cygdrive/c/Users/dylan/ /cygdrive/u/backup-user/ --log-file=%LOG_DIR%/backup-user-%TIMESTAMP%.log
 
-:: documents
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/h/documents/ /cygdrive/u/backup-documents/ --log-file=/cygdrive/u/backup-documents.log
+:: Documents
+rsync %RSYNC_OPTIONS% /cygdrive/h/documents/ /cygdrive/u/backup-documents/ --log-file=%LOG_DIR%/backup-documents-%TIMESTAMP%.log
 
-:: sites
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/h/sites/ /cygdrive/u/backup-sites/ --log-file=/cygdrive/u/backup-sites.log
+:: Sites
+rsync %RSYNC_OPTIONS% /cygdrive/h/sites/ /cygdrive/u/backup-sites/ --log-file=%LOG_DIR%/backup-sites-%TIMESTAMP%.log
 
-:: creative
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/h/creative/ /cygdrive/u/backup-creative/ --log-file=/cygdrive/u/backup-creative.log
+:: Creative
+rsync %RSYNC_OPTIONS% /cygdrive/h/creative/ /cygdrive/u/backup-creative/ --log-file=%LOG_DIR%/backup-creative-%TIMESTAMP%.log
 
-:: projects
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/h/projects/ /cygdrive/u/backup-projects/ --log-file=/cygdrive/u/backup-projects.log
+:: Projects
+rsync %RSYNC_OPTIONS% /cygdrive/h/projects/ /cygdrive/u/backup-projects/ --log-file=%LOG_DIR%/backup-projects-%TIMESTAMP%.log
 
-:: notes
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/h/notes/ /cygdrive/u/backup-notes/ --log-file=/cygdrive/u/backup-notes.log
+:: Notes
+rsync %RSYNC_OPTIONS% /cygdrive/h/notes/ /cygdrive/u/backup-notes/ --log-file=%LOG_DIR%/backup-notes-%TIMESTAMP%.log
 
-:: configs
-rsync --verbose --recursive --update --exclude='.git/' --cvs-exclude --info=ALL --progress /cygdrive/h/config/ /cygdrive/u/backup-config/ --log-file=/cygdrive/u/backup-config.log
+:: Configs
+rsync %RSYNC_OPTIONS% /cygdrive/h/config/ /cygdrive/u/backup-config/ --log-file=%LOG_DIR%/backup-config-%TIMESTAMP%.log
 
-:: pictures
-rsync --verbose --recursive --update --exclude='Lightroom/' --cvs-exclude --progress --info=ALL /cygdrive/m/pictures/ /cygdrive/u/backup-pictures/ --log-file=/cygdrive/u/backup-pictures.log
+:: Pictures
+rsync %RSYNC_OPTIONS% --exclude='Lightroom/' /cygdrive/m/pictures/ /cygdrive/u/backup-pictures/ --log-file=%LOG_DIR%/backup-pictures-%TIMESTAMP%.log
 
-:: pictures: scans
-rsync --verbose --recursive --update --exclude='Lightroom/' --cvs-exclude --progress --info=ALL /cygdrive/m/Scans/ /cygdrive/u/backup-scans/ --log-file=/cygdrive/u/backup-scans.log
+:: Pictures: Scans
+rsync %RSYNC_OPTIONS% --exclude='Lightroom/' /cygdrive/m/Scans/ /cygdrive/u/backup-scans/ --log-file=%LOG_DIR%/backup-scans-%TIMESTAMP%.log
 
-:: music
-:: rsync --verbose --recursive --ignore-existing --update  --delete --progress /cygdrive/m/music/ /cygdrive/u/backup-music/ --log-file=/cygdrive/u/backup-music.log
-
-
-
-
+:: Music (uses --delete)
+:: rsync %RSYNC_OPTIONS% --ignore-existing --delete /cygdrive/m/music/ /cygdrive/u/backup-music/ --log-file=%LOG_DIR%/backup-music-%TIMESTAMP%.log
 
 EXIT
